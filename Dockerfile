@@ -18,8 +18,8 @@ WORKDIR /app
 RUN mkdir -p /app/downloads
 
 # Copy application code
-COPY app /app
-COPY web /app/web
+COPY . /app
+# COPY web /app/web
 
 # Expose the application port
 EXPOSE 5000

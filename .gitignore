@@ -1,0 +1,54 @@
+# 忽略版本控制目录
+.git/
+.svn/
+
+# 忽略编程语言相关的依赖和缓存
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Java
+target/
+*.jar
+*.war
+*.ear
+
+# 通用构建输出目录
+dist/
+build/
+*.tar.gz
+*.zip
+
+# 忽略日志文件
+logs/
+*.log
+
+# 忽略IDE和编辑器配置文件
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 忽略系统特定文件
+.DS_Store
+Thumbs.db
+
+# 忽略敏感信息文件（非常重要！）
+.env
+.env.local
+*.key
+*.pem
+
+# 忽略Docker相关文件（可选，但通常构建需要它们）
+# Dockerfile
+# .dockerignore
