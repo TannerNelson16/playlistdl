@@ -9,45 +9,52 @@
 <body>
     <div class="container">
         <!-- Admin button in the top right corner -->
-	<button id="adminButton" onclick="handleAdminButton()">Admin</button>
+        <button id="adminButton" onclick="handleAdminButton()">Admin</button>
 
         <h1>Audio Downloader</h1>
-        <div id="adminMessage" style="display: none; color: red; font-weight: bold;">
-    	Now downloading directly to your server!
-	
-	</div>
-	<input type="text" id="spotifyLink" placeholder="Paste your song link or playlist link here">
-        <button onclick="download()">Download</button>
+        
+        <div id="adminMessage" style="display: none; color: #4ade80; font-weight: bold; margin-bottom: 15px;">
+            ⚡ Logged in as Admin: Downloading directly to your server!
+        </div>
 
-        <!-- Progress bar -->
-        <progress id="progress" value="0" max="100" style="display:none;"></progress>
-	<div id="adminControls" style="display:none;">
-	    <select id="downloadPathSelect" onchange="handlePathSelectChange()" style="display:none;"></select>
-    	    <input type="text" id="downloadPath" placeholder="Enter server download path">
-    	    <button id="setPathButton" onclick="setDownloadPath()">Set Download Path</button>
-    	    <div id="pathMessage"></div>
-	</div>
+        <div id="adminControls" style="display:none; margin-bottom: 15px;">
+            <select id="downloadPathSelect" onchange="handlePathSelectChange()" style="display:none;"></select>
+            <input type="text" id="downloadPath" placeholder="Enter server download path">
+            <button id="setPathButton" onclick="setDownloadPath()">Set Download Path</button>
+            <div id="pathMessage" style="margin-top: 5px; font-size: 13px;"></div>
+        </div>
+
+        <input type="text" id="spotifyLink" placeholder="Paste your Spotify or YouTube song/playlist link here">
+        <button id="downloadBtn" onclick="download()">Download</button>
+
+        <!-- Progress section -->
+        <div id="progressSection" style="display: none; margin-top: 15px;">
+            <progress id="progress" value="0" max="100"></progress>
+            <div id="statusText" style="margin-top: 8px; font-size: 14px; color: #cbd5e1;"></div>
+        </div>
 
         <div id="result"></div>
 
         <!-- Logs section -->
+        <div class="logs-header">
+            <span>Activity Logs</span>
+            <button id="clearLogsBtn" onclick="clearLogs()" style="padding: 3px 8px; font-size: 11px; display: none;">Clear</button>
+        </div>
         <div id="logs" class="logs"></div>
     </div>
 
-    <!-- Login modal for admin access -->
     <!-- Login modal for admin access -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span onclick="closeLoginModal()" class="close">&times;</span>
             <h2>Admin Login</h2>
-            <input type="text" id="username" placeholder="Username">
-            <input type="password" id="password" placeholder="Password">
+            <input type="text" id="username" placeholder="Username" autocomplete="username">
+            <input type="password" id="password" placeholder="Password" autocomplete="current-password">
             <button onclick="login()">Login</button>
-            <div id="loginMessage"></div>
+            <div id="loginMessage" style="margin-top: 10px;"></div>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-

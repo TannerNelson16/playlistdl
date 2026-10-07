@@ -1,20 +1,23 @@
 services:
   playlistdl:
+    build: .
     image: tanner23456/playlistdl:v2
     container_name: playlistdl
     ports:
       - "4827:5000"
     environment:
       # Direct Server Download
-      - ADMIN_USERNAME=admin  # Insert unique username here!
-      - ADMIN_PASSWORD=password  # Insert unique password here!
-      - AUDIO_DOWNLOAD_PATH=${AUDIO_DOWNLOAD_PATH}  # Use the env variable
-      - CLEANUP_INTERVAL=300  # Optional
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-password}
+      - AUDIO_DOWNLOAD_PATH=${AUDIO_DOWNLOAD_PATH}
+      - CLEANUP_INTERVAL=${CLEANUP_INTERVAL:-86400}
       - SPOTIPY_CLIENT_ID=${SPOTIPY_CLIENT_ID:-}
       - SPOTIPY_CLIENT_SECRET=${SPOTIPY_CLIENT_SECRET:-}
       - SPOTDL_AUDIO_PROVIDERS=${SPOTDL_AUDIO_PROVIDERS:-}
       - SPOTDL_EXTRA_ARGS=${SPOTDL_EXTRA_ARGS:-}
       - DOWNLOAD_OPTIONS=${DOWNLOAD_OPTIONS:-}
     volumes:
-      - ${AUDIO_DOWNLOAD_PATH}:${AUDIO_DOWNLOAD_PATH}  # Reference env variable here as well
+      - ${AUDIO_DOWNLOAD_PATH}:${AUDIO_DOWNLOAD_PATH}
+      - ./app:/app
+      - ./web:/app/web
     restart: unless-stopped

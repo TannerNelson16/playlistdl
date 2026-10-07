@@ -1,0 +1,26 @@
+# Environment variables and local configuration
+.env
+.env.local
+.env.*.local
+
+# Session & persistent runtime files
+.sessions.json
+.jobs.json
+app/downloads/
+downloads/
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# System / OS files
+.DS_Store
+Thumbs.db

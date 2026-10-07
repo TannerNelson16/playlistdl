@@ -1,0 +1,11 @@
+.git
+.gitignore
+.env
+.env*
+!*.example
+.sessions.json
+.jobs.json
+app/downloads/
+downloads/
+__pycache__/
+*.py[cod]
